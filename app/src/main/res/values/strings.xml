@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">TinkoffLeague</string>
+    <string name="team_name">Team name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Название:</string>
+    <string name="fullname">Полное название:</string>
+    <string name="nicknames">Прозвища:</string>
+    <string name="founded">Основан:</string>
+    <string name="website">Сайт:</string>
+    <string name="venue">Стадион</string>
+    <string name="capacity">Вместимость:</string>
+    <string name="staff">Персонал</string>
+    <string name="gen_ditector">Ген. директор:</string>
+    <string name="main_trainer">Г. Тренер:</string>
+    <string name="captain">Капитан:</string>
+    <string name="enemy_name">Enemy name</string>
+    <string name="type_of_match">Type of match</string>
+    <string name="date_of_match">Date of match</string>
+</resources>
