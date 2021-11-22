@@ -41,11 +41,11 @@ class MainInfoFragment : Fragment() {
                     nicknamesBannerInfo.text = nicknames
                     foundedBannerInfo.text = founded
                     websiteBannerInfo.text = website
-                    venueNameBannerInfo.text = venue?.name
-                    venueCapacityBannerInfo.text = venue?.capacity.toString()
-                    staffGenDirBannerInfo.text = staff?.gendir
-                    mainTrainerBannerInfo.text = staff?.trainer
-                    staffCapitanBannerInfo.text = staff?.captain
+                    venueNameBannerInfo.text = venueName
+                    venueCapacityBannerInfo.text = venueCapacity.toString()
+                    staffGenDirBannerInfo.text = gendir
+                    mainTrainerBannerInfo.text = trainer
+                    staffCapitanBannerInfo.text = captain
                     Log.d("FRAGMENT_CHECK", team.toString())
                 }
             }

@@ -31,11 +31,11 @@ class FixturesFragment : Fragment() {
         adapter = FixturesAdapter()
 
         val index = activity?.intent?.getIntExtra("teamItem",-1)
-        viewModel.teamList.observe(viewLifecycleOwner, {
+        viewModel.liveDataFixturesInfo.observe(viewLifecycleOwner, {
             if (index != null){
-                val fixtures = it[index].fixtures
+                val fixtures = it[index]
                 if (fixtures != null) {
-                    adapter.list = fixtures.toMutableList()
+                    adapter.list = fixtures
                     rvFixtures.adapter = adapter
                 }
             }

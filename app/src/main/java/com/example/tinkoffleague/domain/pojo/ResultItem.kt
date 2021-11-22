@@ -1,13 +1,17 @@
 package com.example.tinkoffleague.domain.pojo
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
-
-
-
+@Entity(tableName = "results_list")
 data class ResultItem (
+
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
+
     @SerializedName("enemy")
     @Expose
     val enemy: String? = null,

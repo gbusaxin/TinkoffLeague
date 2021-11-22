@@ -2,7 +2,9 @@ package com.example.tinkoffleague.presentation.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffleague.R
+import com.example.tinkoffleague.presentation.AppViewModel
 import com.example.tinkoffleague.presentation.adapters.AppViewPagerAdapter
 import com.example.tinkoffleague.presentation.fragments.FixturesFragment
 import com.example.tinkoffleague.presentation.fragments.MainInfoFragment
@@ -17,11 +19,13 @@ class MenuActivity : AppCompatActivity() {
     lateinit var fixturesFragment: FixturesFragment
     lateinit var resultsFragment: ResultsFragment
     lateinit var playerFragment: PlayerFragment
+    lateinit var viewModel: AppViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
+        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
         mainInfoFragment = MainInfoFragment()
         fixturesFragment = FixturesFragment()
         resultsFragment = ResultsFragment()

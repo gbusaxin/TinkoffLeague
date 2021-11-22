@@ -6,17 +6,23 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tinkoffleague.data.ApiFactory
 import com.example.tinkoffleague.data.database.AppDatabase
+import com.example.tinkoffleague.domain.pojo.FixturesItem
+import com.example.tinkoffleague.domain.pojo.PlayerItem
+import com.example.tinkoffleague.domain.pojo.ResultItem
 import com.example.tinkoffleague.domain.pojo.TeamItem
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class AppViewModel (application: Application): AndroidViewModel(application) {
+class AppViewModel(application: Application) : AndroidViewModel(application) {
 
     private val db = AppDatabase.getInstance(application)
     val teamList = db.teamDbDao().getTeamList()
 
     val liveDataMainInfo = MutableLiveData<List<TeamItem>>()
+    val liveDataPlayerInfo = MutableLiveData<List<PlayerItem>>()
+    val liveDataResultInfo = MutableLiveData<List<ResultItem>>()
+    val liveDataFixturesInfo = MutableLiveData<List<FixturesItem>>()
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -26,25 +32,50 @@ class AppViewModel (application: Application): AndroidViewModel(application) {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 db.teamDbDao().insertTeamList(it)
-                       liveDataMainInfo.value = it
+                liveDataMainInfo.value = it
             }, {
                 it.printStackTrace()
             })
         compositeDisposable.add(disposable)
     }
 
-    fun getWantedTeam(name:String):TeamItem?{
-        val list = liveDataMainInfo.value
-        var team : TeamItem
-        if (list?.size != null) {
-            for (i in 0 until list.size){
-                if (list.get(i).name == name){
-                    team = list.get(i)
-                    return team
-                }
-            }
-        }
-        return null
+    fun loadPlayersJson() {
+        val disposable = ApiFactory.apiService.getPlayersFromJson()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                       db.teamDbDao().insertPlayersList(it)
+                liveDataPlayerInfo.value = it
+            }, {
+                it.printStackTrace()
+            })
+        compositeDisposable.add(disposable)
+    }
+
+    fun loadResultJson(){
+        val disposable = ApiFactory.apiService.getResultsFromJson()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                db.teamDbDao().insertResultList(it)
+                liveDataResultInfo.value = it
+            },{
+                it.printStackTrace()
+            })
+        compositeDisposable.add(disposable)
+    }
+
+    fun loadFixturesJson(){
+        val disposable = ApiFactory.apiService.getFixturesFromJson()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                db.teamDbDao().insertFixturesList(it)
+                liveDataFixturesInfo.value = it
+            },{
+                it.printStackTrace()
+            })
+        compositeDisposable.add(disposable)
     }
 
     override fun onCleared() {

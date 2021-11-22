@@ -1,71 +1,61 @@
 package com.example.tinkoffleague.domain.pojo
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
-
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "teams_list")
 data class TeamItem (
 
+    @PrimaryKey(autoGenerate = true)
+    val id:Int,
+
     @SerializedName("name")
     @Expose
     val name: String? = null,
 
-    @ColumnInfo
     @SerializedName("fullname")
     @Expose
     val fullname: String? = null,
 
-    @ColumnInfo
     @SerializedName("nicknames")
     @Expose
     val nicknames: String? = null,
 
-    @ColumnInfo
     @SerializedName("founded")
     @Expose
     val founded: String? = null,
 
-    @ColumnInfo
     @SerializedName("website")
     @Expose
     val website: String? = null,
 
-    @ColumnInfo
     @SerializedName("imageURL")
     @Expose
     val imageURL: String? = null,
 
-    @ColumnInfo
     @SerializedName("smallImageURL")
     @Expose
     val smallImageURL: String? = null,
 
-    @ColumnInfo
-    @SerializedName("venue")
+    @SerializedName("venueName")
     @Expose
-    val venue: VenueItem? = null,
+    val venueName: String? = null,
 
-    @ColumnInfo
-    @SerializedName("staff")
+    @SerializedName("venueCapacity")
     @Expose
-    val staff: StaffItem? = null,
+    val venueCapacity:Int? = 0,
 
-    @ColumnInfo
-    @SerializedName("players")
+    @SerializedName("gendir")
     @Expose
-    val players: List<PlayerItem>? = null,
+    val gendir: String? = null,
 
-    @ColumnInfo
-    @SerializedName("results")
+    @SerializedName("trainer")
     @Expose
-    val results: List<ResultItem>? = null,
+    val trainer: String? = null,
 
-    @ColumnInfo
-    @SerializedName("fixtures")
+    @SerializedName("captain")
     @Expose
-    val fixtures: List<FixturesItem>? = null
+    val captain: String? = null
 )
