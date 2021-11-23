@@ -33,7 +33,6 @@ class ResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val index = activity?.intent?.getIntExtra("teamItem", -1)
 
         viewModel.teamList.observe(viewLifecycleOwner, {

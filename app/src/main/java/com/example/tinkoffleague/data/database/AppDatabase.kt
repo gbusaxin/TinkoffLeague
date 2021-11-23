@@ -9,8 +9,8 @@ import com.example.tinkoffleague.domain.pojo.PlayerItem
 import com.example.tinkoffleague.domain.pojo.ResultItem
 import com.example.tinkoffleague.domain.pojo.TeamItem
 
-@Database(entities = [TeamItem::class,FixturesItem::class,PlayerItem::class,ResultItem::class],
-    version = 3,exportSchema = false)
+@Database(entities = [TeamItem::class],
+    version = 2,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
         private var db: AppDatabase? = null
@@ -21,7 +21,10 @@ abstract class AppDatabase : RoomDatabase() {
             synchronized(LOCK) {
                 db?.let { return it }
                 val instance =
-                    Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME).build()
+                    Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                        .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
+                        .build()
                 db = instance
                 return instance
             }

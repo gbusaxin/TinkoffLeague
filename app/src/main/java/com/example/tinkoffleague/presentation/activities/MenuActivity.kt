@@ -35,7 +35,7 @@ class MenuActivity : AppCompatActivity() {
         viewPagerAdapter.addFragment(mainInfoFragment,"основное")
         viewPagerAdapter.addFragment(fixturesFragment,"матчи")
         viewPagerAdapter.addFragment(resultsFragment,"результаты")
-        viewPagerAdapter.addFragment(playerFragment,"Состав")
+        viewPagerAdapter.addFragment(playerFragment,"состав")
         viewPager.adapter = viewPagerAdapter
         tabs.setupWithViewPager(viewPager)
     }

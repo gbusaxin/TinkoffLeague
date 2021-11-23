@@ -21,9 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[AppViewModel::class.java]
         viewModel.loadTeamsJson()
-        viewModel.loadFixturesJson()
-        viewModel.loadPlayersJson()
-        viewModel.loadResultJson()
         adapter = ChooseTeamAdapter()
         viewModel.teamList.observe(this,{
             adapter.list = it

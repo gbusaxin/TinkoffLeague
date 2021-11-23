@@ -6,11 +6,7 @@ import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "fixtures_list")
 data class FixturesItem (
-
-    @PrimaryKey(autoGenerate = true)
-    val id:Int,
 
     @SerializedName("enemy")
     @Expose

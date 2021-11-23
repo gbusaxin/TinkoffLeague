@@ -11,30 +11,6 @@ import java.util.*
 class DatabaseConverters {
 
     @TypeConverter
-    fun toVenueFromJson(venue:String):VenueItem{
-        if (venue == null) return VenueItem("",0)
-        val type: Type = object : TypeToken<VenueItem?>() {}.type
-        return Gson().fromJson(venue, type)
-    }
-
-    @TypeConverter
-    fun fromJsonToVenue(venue:VenueItem):String{
-        return Gson().toJson(venue)
-    }
-
-    @TypeConverter
-    fun toStaffFromJson(staff:String):StaffItem{
-        if (staff == null) return StaffItem("","","")
-        val type: Type = object : TypeToken<StaffItem?>() {}.type
-        return Gson().fromJson(staff, type)
-    }
-
-    @TypeConverter
-    fun fromJsonToStaff(staff:StaffItem):String{
-        return Gson().toJson(staff)
-    }
-
-    @TypeConverter
     fun toListPlayersFromJson(players:String):List<PlayerItem>{
         if (players == null) return Collections.emptyList()
         val type: Type = object : TypeToken<List<PlayerItem?>?>() {}.type

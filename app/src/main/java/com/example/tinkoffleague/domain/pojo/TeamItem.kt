@@ -2,18 +2,19 @@ package com.example.tinkoffleague.domain.pojo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.tinkoffleague.data.database.converters.DatabaseConverters
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "teams_list")
+@TypeConverters(DatabaseConverters::class)
 data class TeamItem (
 
-    @PrimaryKey(autoGenerate = true)
-    val id:Int,
-
+    @PrimaryKey
     @SerializedName("name")
     @Expose
-    val name: String? = null,
+    val name: String,
 
     @SerializedName("fullname")
     @Expose
@@ -39,11 +40,11 @@ data class TeamItem (
     @Expose
     val smallImageURL: String? = null,
 
-    @SerializedName("venueName")
+    @SerializedName("venue_name")
     @Expose
     val venueName: String? = null,
 
-    @SerializedName("venueCapacity")
+    @SerializedName("venue_capacity")
     @Expose
     val venueCapacity:Int? = 0,
 
@@ -57,5 +58,18 @@ data class TeamItem (
 
     @SerializedName("captain")
     @Expose
-    val captain: String? = null
-)
+    val captain: String? = null,
+
+    @SerializedName("players")
+    @Expose
+    val players: List<PlayerItem>? = null,
+
+    @SerializedName("results")
+    @Expose
+    val results: List<ResultItem>? = null,
+
+    @SerializedName("fixtures")
+    @Expose
+    val fixtures: List<FixturesItem>? = null
+
+    )

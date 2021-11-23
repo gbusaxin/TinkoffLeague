@@ -21,21 +21,22 @@ class FixturesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
+        adapter = FixturesAdapter()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fixtures, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
-        adapter = FixturesAdapter()
 
         val index = activity?.intent?.getIntExtra("teamItem",-1)
-        viewModel.liveDataFixturesInfo.observe(viewLifecycleOwner, {
+
+        viewModel.teamList.observe(viewLifecycleOwner, {
             if (index != null){
-                val fixtures = it[index]
+                val fixtures = it[index].fixtures
                 if (fixtures != null) {
-                    adapter.list = fixtures
+                    adapter.list = fixtures.toMutableList()
                     rvFixtures.adapter = adapter
                 }
             }
