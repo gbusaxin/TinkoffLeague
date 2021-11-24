@@ -13,5 +13,5 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/results_item"
-        android:background="@color/grey"/>
+        android:background="@color/transparent_50"/>
 </FrameLayout>

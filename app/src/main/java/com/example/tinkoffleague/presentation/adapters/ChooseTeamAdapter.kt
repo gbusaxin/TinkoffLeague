@@ -3,52 +3,85 @@ package com.example.tinkoffleague.presentation.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tinkoffleague.R
 import com.example.tinkoffleague.domain.pojo.TeamItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.choose_team_item.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
-class ChooseTeamAdapter:RecyclerView.Adapter<ChooseTeamAdapter.ChooseTeamViewHolder>() {
+class ChooseTeamAdapter(private var teamList: ArrayList<TeamItem>) :
+    RecyclerView.Adapter<ChooseTeamAdapter.ChooseTeamViewHolder>(),
+    Filterable {
 
-    var list = listOf<TeamItem>()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
+    var filterdList = listOf<TeamItem>()
+
+    init {
+        filterdList = teamList
     }
 
-    var onTeamClickListener :((TeamItem)-> Unit)?=null
+    var onTeamClickListener: ((TeamItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseTeamViewHolder {
-        return ChooseTeamViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.choose_team_item,parent,false))
+        return ChooseTeamViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.choose_team_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ChooseTeamViewHolder, position: Int) {
-        var item = list[position]
-        with(holder){
+        val item = filterdList[position]
+        with(holder) {
             name.text = item.name
             Picasso.get().load(item.imageURL).into(image)
         }
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             onTeamClickListener?.invoke(item)
         }
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return filterdList.size
     }
 
-    inner class ChooseTeamViewHolder(view:View): RecyclerView.ViewHolder(view) {
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(p0: CharSequence?): FilterResults {
+                val charSearch = p0.toString()
+                if (charSearch.isEmpty()) {
+                    filterdList = teamList
+                } else {
+                    val resultList = ArrayList<TeamItem>()
+                    for (item in teamList) {
+                        if (item.name.lowercase(Locale.ROOT)
+                                .trim()
+                                .contains(charSearch.lowercase(Locale.ROOT))
+                        ) {
+                            resultList.add(item)
+                        }
+                    }
+                    filterdList = resultList
+                }
+                val filterResult = FilterResults()
+                filterResult.values = filterdList
+                return filterResult
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
+                teamList = p1?.values as ArrayList<TeamItem>
+                notifyDataSetChanged()
+            }
+        }
+    }
+
+    inner class ChooseTeamViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val name = view.teamNameLabel
         val image = view.teamImageLabel
-
-//        init{
-//            view.setOnClickListener {
-//                onTeamClickListener?.invoke(list[adapterPosition])
-//            }
-//        }
 
     }
 }

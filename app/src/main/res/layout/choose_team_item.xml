@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
-    android:background="@color/white">
+    android:background="@color/transparent_25">
 
     <ImageView
         android:id="@+id/teamImageLabel"
@@ -22,7 +22,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/team_name"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/teamImageLabel"

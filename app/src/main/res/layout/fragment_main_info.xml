@@ -4,412 +4,398 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:layout_margin="3dp"
+    android:padding="5dp"
     tools:context=".presentation.fragments.MainInfoFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:padding="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/transparent_50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <ImageView
+            android:id="@+id/imageMainInfo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_baseline_sports_soccer_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="Общая информация"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageMainInfo"
+            app:layout_constraintStart_toEndOf="@+id/imageMainInfo"
+            app:layout_constraintTop_toTopOf="@+id/imageMainInfo" />
+
+        <View
+            android:id="@+id/viewview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/darkGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageMainInfo" />
 
+        <TextView
+            android:id="@+id/nameBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/name"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewview" />
 
-            <ImageView
-                android:id="@+id/imageMainInfo"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/ic_baseline_sports_soccer_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/nameBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/nameBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nameBanner"
+            app:layout_constraintTop_toTopOf="@+id/nameBanner" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:text="Общая информация"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageMainInfo"
-                app:layout_constraintStart_toEndOf="@+id/imageMainInfo"
-                app:layout_constraintTop_toTopOf="@+id/imageMainInfo" />
+        <TextView
+            android:id="@+id/fullnameBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/fullname"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameBanner" />
 
-            <View
-                android:id="@+id/viewview"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="5dp"
-                android:background="@color/darkGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageMainInfo" />
+        <TextView
+            android:id="@+id/fullnameBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/fullnameBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fullnameBanner"
+            app:layout_constraintTop_toTopOf="@+id/fullnameBanner" />
 
-            <TextView
-                android:id="@+id/nameBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/name"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewview" />
+        <TextView
+            android:id="@+id/nicknamesBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/nicknames"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fullnameBanner" />
 
-            <TextView
-                android:id="@+id/nameBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/nameBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nameBanner"
-                app:layout_constraintTop_toTopOf="@+id/nameBanner" />
+        <TextView
+            android:id="@+id/nicknamesBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/nicknamesBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nicknamesBanner"
+            app:layout_constraintTop_toTopOf="@+id/nicknamesBanner" />
 
-            <TextView
-                android:id="@+id/fullnameBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/fullname"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nameBanner" />
+        <TextView
+            android:id="@+id/foundedBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/founded"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nicknamesBanner" />
 
-            <TextView
-                android:id="@+id/fullnameBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/fullnameBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fullnameBanner"
-                app:layout_constraintTop_toTopOf="@+id/fullnameBanner" />
+        <TextView
+            android:id="@+id/foundedBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/foundedBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/foundedBanner"
+            app:layout_constraintTop_toTopOf="@+id/foundedBanner" />
 
-            <TextView
-                android:id="@+id/nicknamesBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/nicknames"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullnameBanner" />
+        <TextView
+            android:id="@+id/websiteBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/website"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foundedBanner" />
 
-            <TextView
-                android:id="@+id/nicknamesBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/nicknamesBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/nicknamesBanner"
-                app:layout_constraintTop_toTopOf="@+id/nicknamesBanner" />
+        <TextView
+            android:id="@+id/websiteBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/websiteBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/websiteBanner"
+            app:layout_constraintTop_toTopOf="@+id/websiteBanner" />
 
-            <TextView
-                android:id="@+id/foundedBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/founded"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nicknamesBanner" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/foundedBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/foundedBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/foundedBanner"
-                app:layout_constraintTop_toTopOf="@+id/foundedBanner" />
-
-            <TextView
-                android:id="@+id/websiteBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/website"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/foundedBanner" />
-
-            <TextView
-                android:id="@+id/websiteBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/websiteBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/websiteBanner"
-                app:layout_constraintTop_toTopOf="@+id/websiteBanner" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/transparent_50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/venue"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="53dp"
-            tools:layout_editor_absoluteY="0dp">
+            android:layout_height="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/darkGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/venue"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/view2"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/venueNameBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/name"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="5dp"
-                android:background="@color/darkGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        <TextView
+            android:id="@+id/venueNameBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/venueNameBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/venueNameBanner"
+            app:layout_constraintTop_toTopOf="@+id/venueNameBanner" />
 
-            <TextView
-                android:id="@+id/venueNameBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/name"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view2" />
+        <TextView
+            android:id="@+id/venueCapacityBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/capacity"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/venueNameBanner" />
 
-            <TextView
-                android:id="@+id/venueNameBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/venueNameBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/venueNameBanner"
-                app:layout_constraintTop_toTopOf="@+id/venueNameBanner" />
+        <TextView
+            android:id="@+id/venueCapacityBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/venueCapacityBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/venueCapacityBanner"
+            app:layout_constraintTop_toTopOf="@+id/venueCapacityBanner" />
 
-            <TextView
-                android:id="@+id/venueCapacityBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/capacity"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/venueNameBanner" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/venueCapacityBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/venueCapacityBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/venueCapacityBanner"
-                app:layout_constraintTop_toTopOf="@+id/venueCapacityBanner" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:padding="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/transparent_50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/staff"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="53dp"
-            tools:layout_editor_absoluteY="0dp">
+            android:layout_height="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/darkGrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/staff"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/staffGenDirBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/gen_ditector"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-            <View
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="5dp"
-                android:background="@color/darkGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        <TextView
+            android:id="@+id/staffGenDirBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/staffGenDirBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/staffGenDirBanner"
+            app:layout_constraintTop_toTopOf="@+id/staffGenDirBanner" />
 
-            <TextView
-                android:id="@+id/staffGenDirBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/gen_ditector"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view3" />
+        <TextView
+            android:id="@+id/mainTrainerBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/main_trainer"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/staffGenDirBanner" />
 
-            <TextView
-                android:id="@+id/staffGenDirBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/staffGenDirBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/staffGenDirBanner"
-                app:layout_constraintTop_toTopOf="@+id/staffGenDirBanner" />
+        <TextView
+            android:id="@+id/mainTrainerBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/mainTrainerBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mainTrainerBanner"
+            app:layout_constraintTop_toTopOf="@+id/mainTrainerBanner" />
 
-            <TextView
-                android:id="@+id/mainTrainerBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/main_trainer"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/staffGenDirBanner" />
+        <TextView
+            android:id="@+id/staffCapitanBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/captain"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTrainerBanner" />
 
-            <TextView
-                android:id="@+id/mainTrainerBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/mainTrainerBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/mainTrainerBanner"
-                app:layout_constraintTop_toTopOf="@+id/mainTrainerBanner" />
-
-            <TextView
-                android:id="@+id/staffCapitanBanner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/captain"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mainTrainerBanner" />
-
-            <TextView
-                android:id="@+id/staffCapitanBannerInfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="@+id/staffCapitanBanner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/staffCapitanBanner"
-                app:layout_constraintTop_toTopOf="@+id/staffCapitanBanner" />
+        <TextView
+            android:id="@+id/staffCapitanBannerInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/lightWhite"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/staffCapitanBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/staffCapitanBanner"
+            app:layout_constraintTop_toTopOf="@+id/staffCapitanBanner" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

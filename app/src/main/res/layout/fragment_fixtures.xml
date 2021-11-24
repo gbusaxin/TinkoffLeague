@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="3dp"
     android:padding="3dp"
-    tools:context=".presentation.fragments.FixturesFragment">
+    tools:context=".presentation.fragments.FixturesFragment"
+    android:background="@color/transparent_25">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFixtures"
@@ -15,5 +16,5 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/fixtures_item"
         android:layout_margin="3dp"
-        android:background="@color/grey"/>
+        android:background="@color/transparent_50"/>
 </FrameLayout>
