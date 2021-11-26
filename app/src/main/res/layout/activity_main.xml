@@ -6,40 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".presentation.activities.MainActivity">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchFavouriteTeam"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@color/transparent_25"
-        app:queryBackground="@null"
-        android:textCursorDrawable="@null"
-        app:iconifiedByDefault="true"
-        app:layout_constraintEnd_toEndOf="@+id/rvChooseTeam"
-        app:layout_constraintStart_toStartOf="@+id/rvChooseTeam"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchFavouriteTeam"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/transparent_25"
+            android:textCursorDrawable="@null"
+            app:iconifiedByDefault="true"
+            app:layout_constraintEnd_toEndOf="@+id/rvChooseTeam"
+            app:layout_constraintStart_toStartOf="@+id/rvChooseTeam"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryBackground="@null" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:background="@color/lightWhite"
-        app:layout_constraintEnd_toEndOf="@+id/searchFavouriteTeam"
-        app:layout_constraintStart_toStartOf="@+id/searchFavouriteTeam"
-        app:layout_constraintTop_toBottomOf="@+id/searchFavouriteTeam" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/lightWhite"
+            app:layout_constraintEnd_toEndOf="@+id/searchFavouriteTeam"
+            app:layout_constraintStart_toStartOf="@+id/searchFavouriteTeam"
+            app:layout_constraintTop_toBottomOf="@+id/searchFavouriteTeam" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChooseTeam"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@color/transparent_50"
-        android:padding="5dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:listitem="@layout/choose_team_item" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvChooseTeam"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/transparent_50"
+            android:padding="5dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            tools:listitem="@layout/choose_team_item" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

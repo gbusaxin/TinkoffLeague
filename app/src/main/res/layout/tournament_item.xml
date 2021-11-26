@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/tournamentN"
-        android:layout_width="30dp"
+        android:layout_width="28dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_horizontal|center_vertical"
@@ -60,7 +60,7 @@
 
     <TextView
         android:id="@+id/tournamentB"
-        android:layout_width="30dp"
+        android:layout_width="28dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_horizontal|center_vertical"
@@ -74,7 +74,7 @@
 
     <TextView
         android:id="@+id/tournamentH"
-        android:layout_width="30dp"
+        android:layout_width="28dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_horizontal|center_vertical"
@@ -88,7 +88,7 @@
 
     <TextView
         android:id="@+id/tournamentP"
-        android:layout_width="30dp"
+        android:layout_width="28dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_horizontal|center_vertical"
@@ -102,11 +102,11 @@
 
     <TextView
         android:id="@+id/tournamentZ_P"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_horizontal|center_vertical"
-        android:text="99"
+        android:text="99-99"
         android:textColor="@color/lightWhite"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/tournamentP"
@@ -116,7 +116,7 @@
 
     <TextView
         android:id="@+id/tournamentScores"
-        android:layout_width="30dp"
+        android:layout_width="28dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:gravity="center_horizontal|center_vertical"
