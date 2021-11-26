@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent_25"
+    android:layout_marginBottom="5dp">
+
+    <TextView
+        android:id="@+id/tournamentPosition"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="#"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentImage"
+        app:layout_constraintEnd_toStartOf="@+id/tournamentImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tournamentImage" />
+
+    <ImageView
+        android:id="@+id/tournamentImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tournamentPosition"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_sports_soccer_24" />
+
+    <TextView
+        android:id="@+id/tournamentName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentImage"
+        app:layout_constraintEnd_toStartOf="@+id/tournamentN"
+        app:layout_constraintStart_toEndOf="@+id/tournamentImage"
+        app:layout_constraintTop_toTopOf="@+id/tournamentImage" />
+
+    <TextView
+        android:id="@+id/tournamentN"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="99"
+        android:textColor="@color/lightWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentName"
+        app:layout_constraintEnd_toStartOf="@+id/tournamentB"
+        app:layout_constraintStart_toEndOf="@+id/tournamentName"
+        app:layout_constraintTop_toTopOf="@+id/tournamentName" />
+
+    <TextView
+        android:id="@+id/tournamentB"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="99"
+        android:textColor="@color/lightWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentN"
+        app:layout_constraintEnd_toStartOf="@+id/tournamentH"
+        app:layout_constraintStart_toEndOf="@+id/tournamentN"
+        app:layout_constraintTop_toTopOf="@+id/tournamentN" />
+
+    <TextView
+        android:id="@+id/tournamentH"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="99"
+        android:textColor="@color/lightWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentB"
+        app:layout_constraintEnd_toStartOf="@+id/tournamentP"
+        app:layout_constraintStart_toEndOf="@+id/tournamentB"
+        app:layout_constraintTop_toTopOf="@+id/tournamentB" />
+
+    <TextView
+        android:id="@+id/tournamentP"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="99"
+        android:textColor="@color/lightWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentH"
+        app:layout_constraintEnd_toStartOf="@+id/tournamentZ_P"
+        app:layout_constraintStart_toEndOf="@+id/tournamentH"
+        app:layout_constraintTop_toTopOf="@+id/tournamentH" />
+
+    <TextView
+        android:id="@+id/tournamentZ_P"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="99"
+        android:textColor="@color/lightWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentP"
+        app:layout_constraintEnd_toStartOf="@+id/tournamentScores"
+        app:layout_constraintStart_toEndOf="@+id/tournamentP"
+        app:layout_constraintTop_toTopOf="@+id/tournamentP" />
+
+    <TextView
+        android:id="@+id/tournamentScores"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="99"
+        android:textColor="@color/lightWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tournamentZ_P"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tournamentZ_P"
+        app:layout_constraintTop_toTopOf="@+id/tournamentZ_P" />
+</androidx.constraintlayout.widget.ConstraintLayout>
