@@ -13,14 +13,18 @@ import kotlinx.android.synthetic.main.choose_team_item.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ChooseTeamAdapter(private var teamList: ArrayList<TeamItem>) :
+class ChooseTeamAdapter(var teamList:ArrayList<TeamItem>) :
     RecyclerView.Adapter<ChooseTeamAdapter.ChooseTeamViewHolder>(),
     Filterable {
 
-    var filterdList = listOf<TeamItem>()
-
+    //var teamList = listOf<TeamItem>()
+//    set(value) {
+//        field = value
+//        notifyDataSetChanged()
+//    }
+    private var filteredList = ArrayList<TeamItem>()
     init {
-        filterdList = teamList
+        filteredList = teamList as ArrayList<TeamItem>
     }
 
     var onTeamClickListener: ((TeamItem) -> Unit)? = null
@@ -33,7 +37,7 @@ class ChooseTeamAdapter(private var teamList: ArrayList<TeamItem>) :
     }
 
     override fun onBindViewHolder(holder: ChooseTeamViewHolder, position: Int) {
-        val item = filterdList[position]
+        val item = filteredList[position]
         with(holder) {
             name.text = item.name
             Picasso.get().load(item.imageURL).into(image)
@@ -44,7 +48,7 @@ class ChooseTeamAdapter(private var teamList: ArrayList<TeamItem>) :
     }
 
     override fun getItemCount(): Int {
-        return filterdList.size
+        return filteredList.size
     }
 
     override fun getFilter(): Filter {
@@ -52,7 +56,7 @@ class ChooseTeamAdapter(private var teamList: ArrayList<TeamItem>) :
             override fun performFiltering(p0: CharSequence?): FilterResults {
                 val charSearch = p0.toString()
                 if (charSearch.isEmpty()) {
-                    filterdList = teamList
+                    filteredList = teamList as ArrayList<TeamItem>
                 } else {
                     val resultList = ArrayList<TeamItem>()
                     for (item in teamList) {
@@ -63,16 +67,16 @@ class ChooseTeamAdapter(private var teamList: ArrayList<TeamItem>) :
                             resultList.add(item)
                         }
                     }
-                    filterdList = resultList
+                    filteredList = resultList
                 }
                 val filterResult = FilterResults()
-                filterResult.values = filterdList
+                filterResult.values = filteredList
                 return filterResult
             }
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                teamList = p1?.values as ArrayList<TeamItem>
+                filteredList = p1?.values as ArrayList<TeamItem>
                 notifyDataSetChanged()
             }
         }

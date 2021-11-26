@@ -22,10 +22,19 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[AppViewModel::class.java]
         viewModel.loadTeamsJson()
+
         viewModel.teamList.observe(this,{
             adapter = ChooseTeamAdapter(it as ArrayList<TeamItem>)
+            adapter.teamList
             rvChooseTeam.adapter = adapter
 
+            adapter.onTeamClickListener = {
+                val intent = Intent(this@MainActivity,MenuActivity::class.java)
+                val index = viewModel.teamList.value?.indexOf(it)
+                intent.putExtra("teamItem",index)
+                startActivity(intent)
+                finish()
+            }
         })
 
         searchFavouriteTeam.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
@@ -38,13 +47,13 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        adapter.onTeamClickListener = {
-            val intent = Intent(this@MainActivity,MenuActivity::class.java)
-            val index = viewModel.teamList.value?.indexOf(it)
-            intent.putExtra("teamItem",index)
-            startActivity(intent)
-            finish()
-        }
+//        adapter.onTeamClickListener = {
+//            val intent = Intent(this@MainActivity,MenuActivity::class.java)
+//            val index = viewModel.teamList.value?.indexOf(it)
+//            intent.putExtra("teamItem",index)
+//            startActivity(intent)
+//            finish()
+//        }
 
     }
 

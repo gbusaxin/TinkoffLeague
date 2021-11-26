@@ -9,9 +9,11 @@
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchFavouriteTeam"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="60dp"
         android:background="@color/transparent_25"
+        app:queryBackground="@null"
+        android:textCursorDrawable="@null"
+        app:iconifiedByDefault="true"
         app:layout_constraintEnd_toEndOf="@+id/rvChooseTeam"
         app:layout_constraintStart_toStartOf="@+id/rvChooseTeam"
         app:layout_constraintTop_toTopOf="parent" />
