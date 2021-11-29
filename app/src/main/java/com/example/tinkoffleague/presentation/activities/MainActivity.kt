@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             rvChooseTeam.adapter = adapter
 
             adapter.onTeamClickListener = {
-                val intent = Intent(this@MainActivity,MenuActivity::class.java)
+                val intent = Intent(this@MainActivity,NavigationActivity::class.java)
                 val index = viewModel.teamList.value?.indexOf(it)
                 intent.putExtra("teamItem",index)
                 startActivity(intent)

@@ -6,20 +6,30 @@
         <entry key="app/src/main/res/layout/activity_example.xml" value="0.22509057971014493" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_navigation.xml" value="0.335" />
         <entry key="app/src/main/res/layout/app_bar_example.xml" value="0.22509057971014493" />
+        <entry key="app/src/main/res/layout/app_bar_nav.xml" value="0.125" />
         <entry key="app/src/main/res/layout/choose_team_item.xml" value="0.22327898550724637" />
         <entry key="app/src/main/res/layout/content_example.xml" value="0.22509057971014493" />
+        <entry key="app/src/main/res/layout/content_nav.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fixtures_item.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_fixtures.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_main_info.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_player.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_results.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_tournament.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_view_pager_item.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/nav_header_example.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/nav_header_nav.xml" value="0.335" />
         <entry key="app/src/main/res/layout/player_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/results_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/row_nav_drawer.xml" value="0.45" />
         <entry key="app/src/main/res/layout/tournament_item.xml" value="0.45" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.27589743589743587" />
+        <entry key="app/src/main/res/menu/activity_menu_nav.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/example.xml" value="0.262037037037037" />
+        <entry key="app/src/main/res/menu/nav.xml" value="0.262037037037037" />
+        <entry key="app/src/main/res/menu/navigation.xml" value="0.28229166666666666" />
       </map>
     </option>
   </component>

@@ -13,8 +13,9 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.TinkoffLeague.NoActionBar">
         <activity
-            android:name=".presentation.activities.MenuActivity"
-            android:exported="true" />
+            android:name=".presentation.activities.NavigationActivity"
+            android:exported="true"
+            />
         <activity
             android:name=".presentation.activities.MainActivity"
             android:exported="true">
