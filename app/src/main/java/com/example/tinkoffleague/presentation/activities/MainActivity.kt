@@ -30,10 +30,9 @@ class MainActivity : AppCompatActivity() {
 
             adapter.onTeamClickListener = {
                 val intent = Intent(this@MainActivity,NavigationActivity::class.java)
-                val index = viewModel.teamList.value?.indexOf(it)
+                var index = viewModel.teamList.value?.indexOf(it)
                 intent.putExtra("teamItem",index)
                 startActivity(intent)
-                finish()
             }
         })
 
@@ -47,16 +46,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-//        adapter.onTeamClickListener = {
-//            val intent = Intent(this@MainActivity,MenuActivity::class.java)
-//            val index = viewModel.teamList.value?.indexOf(it)
-//            intent.putExtra("teamItem",index)
-//            startActivity(intent)
-//            finish()
-//        }
-
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 
 }

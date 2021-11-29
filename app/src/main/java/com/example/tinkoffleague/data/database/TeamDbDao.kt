@@ -1,10 +1,7 @@
 package com.example.tinkoffleague.data.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.tinkoffleague.domain.pojo.FixturesItem
 import com.example.tinkoffleague.domain.pojo.PlayerItem
 import com.example.tinkoffleague.domain.pojo.ResultItem
@@ -21,6 +18,9 @@ interface TeamDbDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTeamList(teamList:List<TeamItem>)
+
+    @Query("DELETE FROM teams_list")
+    fun deleteData()
 
 
 }

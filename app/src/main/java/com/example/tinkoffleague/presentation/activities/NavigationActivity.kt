@@ -7,7 +7,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -20,8 +19,6 @@ import com.example.tinkoffleague.databinding.ActivityNavigationBinding
 import com.example.tinkoffleague.presentation.AppViewModel
 import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_navigation.view.*
-import kotlinx.android.synthetic.main.fragment_main_info.view.*
 import kotlinx.android.synthetic.main.nav_header_nav.view.*
 
 class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
@@ -65,12 +62,13 @@ class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSe
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.nav, menu)
-        return true
+    override fun onBackPressed() {
+        super.onBackPressed()
+        drawerLayout.closeDrawer(GravityCompat.START)
+        finish()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -81,10 +79,10 @@ class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_back ->{
-                startActivity(Intent(this@NavigationActivity,MainActivity::class.java))
+                startActivity(Intent(this,MainActivity::class.java))
                 finish()
             }
-            R.id.nav_info -> Toast.makeText(this,"INFO",Toast.LENGTH_SHORT).show()
+            R.id.nav_info -> {Toast.makeText(this,"INFO",Toast.LENGTH_SHORT).show()}
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
