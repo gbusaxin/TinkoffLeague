@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffleague.R
 import com.example.tinkoffleague.presentation.AppViewModel
 import com.example.tinkoffleague.presentation.adapters.AppViewPagerAdapter
-import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.fragment_view_pager_item.*
 
 
 class ViewPagerItemFragment : Fragment() {
