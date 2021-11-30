@@ -10,6 +10,7 @@ import com.example.tinkoffleague.domain.pojo.TeamItem
 import com.example.tinkoffleague.presentation.AppViewModel
 import com.example.tinkoffleague.presentation.adapters.ChooseTeamAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.coroutineScope
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,8 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this)[AppViewModel::class.java]
-        viewModel.loadTeamsJson()
-
+            viewModel.loadTeamsJson()
         viewModel.teamList.observe(this,{
             adapter = ChooseTeamAdapter(it as ArrayList<TeamItem>)
             adapter.teamList

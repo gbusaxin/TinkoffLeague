@@ -11,16 +11,16 @@ import com.example.tinkoffleague.domain.pojo.TeamItem
 interface TeamDbDao {
 
     @Query("SELECT * FROM teams_list")
-    fun getTeamList():LiveData<List<TeamItem>>
+     fun getTeamList():LiveData<List<TeamItem>>
 
     @Query("SELECT * FROM teams_list WHERE name == :teamName")
-    fun getTeamInfo(teamName: String):LiveData<TeamItem>
+     fun getTeamInfo(teamName: String):LiveData<TeamItem>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTeamList(teamList:List<TeamItem>)
+     fun insertTeamList(teamList:List<TeamItem>)
 
     @Query("DELETE FROM teams_list")
-    fun deleteData()
+     fun deleteData()
 
 
 }

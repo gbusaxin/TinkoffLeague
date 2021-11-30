@@ -8,9 +8,9 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("teams_list_info.json")
-    fun getTeamFromJson(): Single<List<TeamItem>>
+     fun getTeamFromJson(): Single<List<TeamItem>>
 
     @GET("league_table.json")
-    fun getTournamentFromJson():Single<List<TournamentItem>>
+     fun getTournamentFromJson():Single<List<TournamentItem>>
 
 }
