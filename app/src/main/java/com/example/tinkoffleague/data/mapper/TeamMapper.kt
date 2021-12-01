@@ -1,8 +1,11 @@
 package com.example.tinkoffleague.data.mapper
 
 import com.example.tinkoffleague.data.database.model.TeamInfoDbModel
+import com.example.tinkoffleague.data.database.model.TournamentInfoDbModel
 import com.example.tinkoffleague.data.network.model.TeamInfoDto
+import com.example.tinkoffleague.data.network.model.TournamentInfoDto
 import com.example.tinkoffleague.domain.pojo.TeamInfo
+import com.example.tinkoffleague.domain.pojo.TournamentInfo
 
 class TeamMapper {
 
@@ -40,6 +43,30 @@ class TeamMapper {
         players = dbModel.players,
         results = dbModel.results,
         fixtures = dbModel.fixtures
+    )
+
+    fun mapTournamentDbModelToEntity(dbModel:TournamentInfoDbModel) = TournamentInfo(
+        teamPosition = dbModel.teamPosition,
+        teamImage = dbModel.teamImage,
+        teamName = dbModel.teamName,
+        n = dbModel.n,
+        b = dbModel.b,
+        h = dbModel.h,
+        p = dbModel.p,
+        zP = dbModel.zP,
+        scores = dbModel.scores
+    )
+
+    fun mapTournamentDtoToDbModel(dto:TournamentInfoDto) = TournamentInfoDbModel(
+        teamPosition = dto.teamPosition,
+        teamImage = dto.teamImage,
+        teamName = dto.teamName,
+        n = dto.n,
+        b = dto.b,
+        h = dto.h,
+        p = dto.p,
+        zP = dto.zP,
+        scores = dto.scores
     )
 
 }

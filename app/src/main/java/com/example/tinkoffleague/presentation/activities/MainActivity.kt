@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffleague.R
-import com.example.tinkoffleague.data.database.model.TeamInfoDbModel
 import com.example.tinkoffleague.domain.pojo.TeamInfo
-import com.example.tinkoffleague.presentation.AppViewModel
 import com.example.tinkoffleague.presentation.ViewModelApp
 import com.example.tinkoffleague.presentation.adapters.ChooseTeamAdapter
 import kotlinx.android.synthetic.main.activity_main.*

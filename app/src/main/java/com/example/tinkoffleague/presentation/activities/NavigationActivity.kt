@@ -2,7 +2,6 @@ package com.example.tinkoffleague.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +15,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.tinkoffleague.R
 import com.example.tinkoffleague.databinding.ActivityNavigationBinding
-import com.example.tinkoffleague.presentation.AppViewModel
 import com.example.tinkoffleague.presentation.ViewModelApp
 import com.google.android.material.navigation.NavigationView
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.nav_header_nav.view.*
 
 class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
@@ -53,14 +49,6 @@ class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSe
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        val index = intent?.getStringExtra("teamItem")
-        if (index != null) {
-            viewModel.getTeamInfo(index).observe(this, {
-//                Picasso.get().load(it.imageURL).into(navView.imageViewTeamClicked)
-//                navView.textViewTeamClicked.text = it.name
-            })
-        }
     }
 
     override fun onBackPressed() {

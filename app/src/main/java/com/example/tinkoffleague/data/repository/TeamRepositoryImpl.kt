@@ -8,6 +8,7 @@ import com.example.tinkoffleague.data.mapper.TeamMapper
 import com.example.tinkoffleague.data.network.ApiFactory
 import com.example.tinkoffleague.domain.TeamRepository
 import com.example.tinkoffleague.domain.pojo.TeamInfo
+import com.example.tinkoffleague.domain.pojo.TournamentInfo
 import java.lang.Exception
 
 class TeamRepositoryImpl(private val application: Application):TeamRepository {
@@ -28,11 +29,25 @@ class TeamRepositoryImpl(private val application: Application):TeamRepository {
         }
     }
 
+    override fun getTournamentList(): LiveData<List<TournamentInfo>> {
+        return Transformations.map(teamDbDao.getTournamentList()){
+            it.map { mapper.mapTournamentDbModelToEntity(it) }
+        }
+    }
+
     override suspend fun loadData() {
         try {
             val dataDto = apiService.getTeamFromJson()
             val dataDbModel = dataDto.map { mapper.mapDtoToDbModel(it) }
             teamDbDao.insertTeamList(dataDbModel)
         } catch (e: Exception){}
+    }
+
+    override suspend fun loadTournament(){
+        try {
+          val dataDto = apiService.getTournamentFromJson()
+          val dataDbModel = dataDto.map { mapper.mapTournamentDtoToDbModel(it) }
+          teamDbDao.insertTournamentList(dataDbModel)
+        }catch (e:Exception){}
     }
 }

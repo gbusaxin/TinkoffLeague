@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffleague.R
-import com.example.tinkoffleague.presentation.AppViewModel
 import com.example.tinkoffleague.presentation.ViewModelApp
 import com.example.tinkoffleague.presentation.adapters.PlayerAdapter
 import kotlinx.android.synthetic.main.fragment_player.*

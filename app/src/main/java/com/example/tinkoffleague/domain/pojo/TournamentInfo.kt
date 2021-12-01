@@ -1,9 +1,5 @@
 package com.example.tinkoffleague.domain.pojo
 
-import com.google.gson.annotations.Expose
-
-import com.google.gson.annotations.SerializedName
-
 data class TournamentInfo(
 
     val teamPosition: Int? = 0,
