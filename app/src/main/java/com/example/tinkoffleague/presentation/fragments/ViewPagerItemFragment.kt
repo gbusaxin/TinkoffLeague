@@ -21,8 +21,6 @@ class ViewPagerItemFragment : Fragment() {
     lateinit var playerFragment: PlayerFragment
     lateinit var tournamentFragment: TournamentFragment
 
-    lateinit var viewModel: AppViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +31,6 @@ class ViewPagerItemFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
         mainInfoFragment = MainInfoFragment()
         fixturesFragment = FixturesFragment()
         resultsFragment = ResultsFragment()

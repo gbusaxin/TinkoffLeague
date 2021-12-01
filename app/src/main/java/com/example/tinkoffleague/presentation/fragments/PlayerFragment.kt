@@ -8,19 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffleague.R
 import com.example.tinkoffleague.presentation.AppViewModel
+import com.example.tinkoffleague.presentation.ViewModelApp
 import com.example.tinkoffleague.presentation.adapters.PlayerAdapter
 import kotlinx.android.synthetic.main.fragment_player.*
 
 class PlayerFragment : Fragment() {
 
-    lateinit var viewModel:AppViewModel
+    lateinit var viewModel:ViewModelApp
     lateinit var adapter: PlayerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
+        viewModel = ViewModelProvider(this)[ViewModelApp::class.java]
         adapter = PlayerAdapter()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_player, container, false)
@@ -29,18 +30,19 @@ class PlayerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val index = activity?.intent?.getIntExtra("teamItem", -1)
+        val index = activity?.intent?.getStringExtra("teamItem")
 
-        viewModel.teamList.observe(viewLifecycleOwner, {
-            if (index != null) {
-                val team = it[index]
-                val results = team.players
-                if (results != null) {
-                    adapter.list = results.toMutableList()
-                    rvPlayer.adapter = adapter
+        if (index != null) {
+            viewModel.getTeamInfo(index).observe(viewLifecycleOwner, {
+                if (index != null) {
+                    val results = it.players
+                    if (results != null) {
+                        adapter.list = results.toMutableList()
+                        rvPlayer.adapter = adapter
+                    }
                 }
-            }
-        })
+            })
+        }
 
     }
 }

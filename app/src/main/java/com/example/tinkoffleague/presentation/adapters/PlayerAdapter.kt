@@ -5,18 +5,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tinkoffleague.R
-import com.example.tinkoffleague.domain.pojo.PlayerItem
+import com.example.tinkoffleague.domain.pojo.PlayerInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.player_item.view.*
 
 class PlayerAdapter:RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>() {
+
     inner class PlayerViewHolder(view: View):RecyclerView.ViewHolder(view){
         val playerName = view.playerName
         val playerImage = view.playerImage
         val playerPosition = view.playerPosition
     }
 
-    var list = mutableListOf<PlayerItem>()
+    var list = mutableListOf<PlayerInfo>()
     set(value) {
         field = value
         notifyDataSetChanged()

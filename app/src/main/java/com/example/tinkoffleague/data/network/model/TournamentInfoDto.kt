@@ -1,10 +1,10 @@
-package com.example.tinkoffleague.domain.pojo
+package com.example.tinkoffleague.data.network.model
 
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
-data class TournamentItem(
+data class TournamentInfoDto(
 
     @SerializedName("team_position")
     @Expose

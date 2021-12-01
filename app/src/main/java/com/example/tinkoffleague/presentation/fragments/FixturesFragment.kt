@@ -9,19 +9,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffleague.R
 import com.example.tinkoffleague.presentation.AppViewModel
+import com.example.tinkoffleague.presentation.ViewModelApp
 import com.example.tinkoffleague.presentation.adapters.FixturesAdapter
 import kotlinx.android.synthetic.main.fragment_fixtures.*
 
 class FixturesFragment : Fragment() {
 
-    private lateinit var viewModel: AppViewModel
+    private lateinit var viewModel: ViewModelApp
     private lateinit var adapter: FixturesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
+        viewModel = ViewModelProvider(this)[ViewModelApp::class.java]
         adapter = FixturesAdapter()
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fixtures, container, false)
@@ -30,16 +31,18 @@ class FixturesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val index = activity?.intent?.getIntExtra("teamItem",-1)
+        val index = activity?.intent?.getStringExtra("teamItem")
 
-        viewModel.teamList.observe(viewLifecycleOwner, {
-            if (index != null){
-                val fixtures = it[index].fixtures
-                if (fixtures != null) {
-                    adapter.list = fixtures.toMutableList()
-                    rvFixtures.adapter = adapter
+        if (index != null) {
+            viewModel.getTeamInfo(index).observe(viewLifecycleOwner, {
+                if (index != null){
+                    val fixtures = it.fixtures
+                            if (fixtures != null) {
+                                adapter.list = fixtures.toMutableList()
+                                rvFixtures.adapter = adapter
+                            }
                 }
-            }
-        })
+            })
+        }
     }
 }

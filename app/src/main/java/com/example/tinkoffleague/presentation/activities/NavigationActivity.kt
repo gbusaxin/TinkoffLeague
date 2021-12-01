@@ -17,6 +17,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.tinkoffleague.R
 import com.example.tinkoffleague.databinding.ActivityNavigationBinding
 import com.example.tinkoffleague.presentation.AppViewModel
+import com.example.tinkoffleague.presentation.ViewModelApp
 import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.nav_header_nav.view.*
@@ -25,7 +26,7 @@ class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSe
 
     private lateinit var binding: ActivityNavigationBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var viewModel: AppViewModel
+    private lateinit var viewModel: ViewModelApp
     private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,25 +34,15 @@ class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSe
 
         binding = ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
+        viewModel = ViewModelProvider(this)[ViewModelApp::class.java]
 
         setSupportActionBar(binding.appBarNav.toolbar)
          drawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_nav)
 
-        val index = intent?.getIntExtra("teamItem", -1)
-        if (index != null) {
-            viewModel.teamList.observe(this, {
-                val team = it[index]
-                Picasso.get().load(team.imageURL).into(navView.imageViewTeamClicked)
-                navView.textViewTeamClicked.text = team.name
-            })
-        }
-
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home,
@@ -63,6 +54,13 @@ class NavigationActivity : AppCompatActivity(),NavigationView.OnNavigationItemSe
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        val index = intent?.getStringExtra("teamItem")
+        if (index != null) {
+            viewModel.getTeamInfo(index).observe(this, {
+//                Picasso.get().load(it.imageURL).into(navView.imageViewTeamClicked)
+//                navView.textViewTeamClicked.text = it.name
+            })
+        }
     }
 
     override fun onBackPressed() {

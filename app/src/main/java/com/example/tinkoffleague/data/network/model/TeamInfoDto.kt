@@ -1,15 +1,16 @@
-package com.example.tinkoffleague.domain.pojo
+package com.example.tinkoffleague.data.network.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.example.tinkoffleague.data.database.converters.DatabaseConverters
+import com.example.tinkoffleague.domain.pojo.FixturesInfo
+import com.example.tinkoffleague.domain.pojo.PlayerInfo
+import com.example.tinkoffleague.domain.pojo.ResultInfo
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "teams_list")
-@TypeConverters(DatabaseConverters::class)
-data class TeamItem (
+data class TeamInfoDto (
 
     @PrimaryKey
     @SerializedName("name")
@@ -62,14 +63,14 @@ data class TeamItem (
 
     @SerializedName("players")
     @Expose
-    val players: List<PlayerItem>? = null,
+    val players: List<PlayerInfo>? = null,
 
     @SerializedName("results")
     @Expose
-    val results: List<ResultItem>? = null,
+    val results: List<ResultInfo>? = null,
 
     @SerializedName("fixtures")
     @Expose
-    val fixtures: List<FixturesItem>? = null
+    val fixtures: List<FixturesInfo>? = null
 
     )

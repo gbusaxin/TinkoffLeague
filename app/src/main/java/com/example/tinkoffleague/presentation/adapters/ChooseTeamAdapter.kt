@@ -7,27 +7,23 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tinkoffleague.R
-import com.example.tinkoffleague.domain.pojo.TeamItem
+import com.example.tinkoffleague.data.database.model.TeamInfoDbModel
+import com.example.tinkoffleague.domain.pojo.TeamInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.choose_team_item.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ChooseTeamAdapter(var teamList:ArrayList<TeamItem>) :
+class ChooseTeamAdapter(var teamList:ArrayList<TeamInfo>) :
     RecyclerView.Adapter<ChooseTeamAdapter.ChooseTeamViewHolder>(),
     Filterable {
 
-    //var teamList = listOf<TeamItem>()
-//    set(value) {
-//        field = value
-//        notifyDataSetChanged()
-//    }
-    private var filteredList = ArrayList<TeamItem>()
+    private var filteredList = ArrayList<TeamInfo>()
     init {
-        filteredList = teamList as ArrayList<TeamItem>
+        filteredList = teamList as ArrayList<TeamInfo>
     }
 
-    var onTeamClickListener: ((TeamItem) -> Unit)? = null
+    var onTeamClickListener: ((TeamInfo) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseTeamViewHolder {
         return ChooseTeamViewHolder(
@@ -56,9 +52,9 @@ class ChooseTeamAdapter(var teamList:ArrayList<TeamItem>) :
             override fun performFiltering(p0: CharSequence?): FilterResults {
                 val charSearch = p0.toString()
                 if (charSearch.isEmpty()) {
-                    filteredList = teamList as ArrayList<TeamItem>
+                    filteredList = teamList as ArrayList<TeamInfo>
                 } else {
-                    val resultList = ArrayList<TeamItem>()
+                    val resultList = ArrayList<TeamInfo>()
                     for (item in teamList) {
                         if (item.name.lowercase(Locale.ROOT)
                                 .trim()
@@ -76,7 +72,7 @@ class ChooseTeamAdapter(var teamList:ArrayList<TeamItem>) :
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                filteredList = p1?.values as ArrayList<TeamItem>
+                filteredList = p1?.values as ArrayList<TeamInfo>
                 notifyDataSetChanged()
             }
         }

@@ -4,12 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.tinkoffleague.domain.pojo.FixturesItem
-import com.example.tinkoffleague.domain.pojo.PlayerItem
-import com.example.tinkoffleague.domain.pojo.ResultItem
-import com.example.tinkoffleague.domain.pojo.TeamItem
+import com.example.tinkoffleague.data.database.model.TeamInfoDbModel
 
-@Database(entities = [TeamItem::class],
+@Database(entities = [TeamInfoDbModel::class],
     version = 2,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     companion object {

@@ -5,13 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tinkoffleague.R
-import com.example.tinkoffleague.domain.pojo.FixturesItem
+import com.example.tinkoffleague.domain.pojo.FixturesInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fixtures_item.view.*
 
 class FixturesAdapter:RecyclerView.Adapter<FixturesAdapter.FixturesViewHolder>() {
 
-    var list = mutableListOf<FixturesItem>()
+    var list = mutableListOf<FixturesInfo>()
     set(value) {
         field = value
         notifyDataSetChanged()

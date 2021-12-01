@@ -1,10 +1,10 @@
 package com.example.tinkoffleague.presentation.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.tinkoffleague.R
 import com.example.tinkoffleague.presentation.AppViewModel
@@ -33,8 +33,8 @@ class TournamentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.liveDataTournamentInfo.observe(viewLifecycleOwner,{
-            adapter.list = it
-            rvTournament.adapter = adapter
+//            adapter.list = it
+//            rvTournament.adapter = adapter
         })
 
 

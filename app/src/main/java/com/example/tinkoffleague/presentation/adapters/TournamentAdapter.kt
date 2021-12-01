@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tinkoffleague.R
-import com.example.tinkoffleague.domain.pojo.TournamentItem
+import com.example.tinkoffleague.domain.pojo.TournamentInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.tournament_item.view.*
 
@@ -25,7 +25,7 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
 
     }
 
-    var list= listOf<TournamentItem>()
+    var list= listOf<TournamentInfo>()
     set(value) {
         field = value
         notifyDataSetChanged()
