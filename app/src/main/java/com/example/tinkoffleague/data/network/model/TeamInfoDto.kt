@@ -1,9 +1,6 @@
 package com.example.tinkoffleague.data.network.model
 
-import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
-import com.example.tinkoffleague.data.database.converters.DatabaseConverters
 import com.example.tinkoffleague.domain.pojo.FixturesInfo
 import com.example.tinkoffleague.domain.pojo.PlayerInfo
 import com.example.tinkoffleague.domain.pojo.ResultInfo
